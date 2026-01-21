@@ -10,7 +10,7 @@ private:
     char sequence[200];
 
 public:
-    // Methods for setting data
+    // Methods for setting data (setters)
     void setId(const char* newId) {
         strcpy(id, newId);
     }
@@ -23,12 +23,17 @@ public:
         strcpy(sequence, newSeq);
     }
 
+    // Methods for reading data (getters)
+    const char* getId() const { return id; }
+    const char* getName() const { return name; }
+    const char* getSequence() const { return sequence; }
+
     // Method that prints a description of the protein
     void describe() const {
         cout << "Protein " << id << " (" << name << "): " << sequence << endl;
     }
 
-    // Example usage of the "this" pointer
+    // Example usage of the this pointer
     void printAddress() const {
         cout << "This protein object is located at memory address: "
              << this << endl;
@@ -51,6 +56,7 @@ private:
     char strand;
 
 public:
+    // Setters
     void setId(const char* newId) {
         strcpy(id, newId);
     }
@@ -75,6 +81,14 @@ public:
         strand = s;
     }
 
+    // Getters
+    const char* getId() const { return id; }
+    const char* getName() const { return name; }
+    const char* getChrom() const { return chrom; }
+    int getStart() const { return start; }
+    int getEnd() const { return end; }
+    char getStrand() const { return strand; }
+
     // Print gene description
     void describe() const {
         cout << "Gene " << id << " (" << name << ") on "
@@ -82,7 +96,7 @@ public:
              << " (" << strand << " strand)" << endl;
     }
 
-    // Example usage of the "this" pointer
+    // Example usage of the this pointer
     void showAddress() const {
         cout << "This gene object is located at memory address: "
              << this << endl;
@@ -98,7 +112,10 @@ int main() {
     p1.setSequence("MQLVD...");
     p1.describe();
     p1.printAddress();
-    cout << "Length of sequence: " << p1.length() << endl << endl;
+    cout << "Length of sequence: " << p1.length() << endl;
+
+    // Example usage of getter
+    cout << "Protein name via getter: " << p1.getName() << endl << endl;
 
     p2.setId("P2");
     p2.setName("Myosin");
@@ -116,7 +133,7 @@ int main() {
     g1.setStrand('+');
     g1.describe();
     g1.showAddress();
-    cout << endl;
+    cout << "Gene start via getter: " << g1.getStart() << endl << endl;
 
     g2.setId("G2");
     g2.setName("TP53");
