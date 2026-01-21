@@ -1,93 +1,217 @@
-# C++ Bioinformatics OOP Labs
+#  C++ Bioinformatics OOP Labs
 
-This repository contains a series of university laboratory assignments focused on **Object-Oriented Programming (OOP) in C++**, using **bioinformatics-inspired examples** such as genes, proteins, sequences, isoforms, and biological data modeling.
+A series of C++ programming labs demonstrating core **Object-Oriented Programming** principles through bioinformatics examples. The project progresses from basic classes to advanced concepts like inheritance and polymorphism across five assignments.
 
-The project was developed incrementally across five labs, each introducing new C++ concepts while extending the same biological model.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![C++](https://img.shields.io/badge/C++-00599C?style=flat&logo=c%2B%2B&logoColor=white)
+![Bioinformatics](https://img.shields.io/badge/Domain-Bioinformatics-green)
 
 ---
 
-##  Educational Goals
+##  Table of Contents
 
-- Understand and apply core OOP principles in C++
-- Practice class design and data encapsulation
-- Learn object lifecycle management (constructors / destructors)
-- Use STL containers (`std::string`, `std::vector`)
-- Model real-world biological entities
-- Apply composition, inheritance, and polymorphism
-- Use abstract base classes and virtual methods
+- [Project Overview](#-project-overview)
+- [Key Technical Concepts](#-key-technical-concepts)
+- [Lab Overview](#-lab-overview)
+- [Detailed Lab Descriptions](#-detailed-lab-descriptions)
+- [Usage](#-usage)
+- [Domain Model](#-domain-model)
+- [License](#-license)
+- [Author](#-author)
+
+---
+
+##  Project Overview
+
+The repository follows a hands-on learning approach where each lab introduces a new OOP concept while extending the same codebase. By Lab 5, simple `Gene` and `Protein` classes evolve into a polymorphic system with abstract base classes and specialized sequence types.
+
+**Academic Context**: University OOP Course  
+**Domain**: Bioinformatics
+
+---
+
+##  Key Technical Concepts
+
+<table>
+<tr>
+<td width="50%">
+
+### Core OOP Principles
+-  **Encapsulation** & data hiding
+-  **Composition** (has-a relationships)
+-  **Inheritance** (is-a relationships)
+-  **Polymorphism** (runtime behavior)
+-  **Abstraction** (pure virtual functions)
+
+</td>
+<td width="50%">
+
+### C++ Features
+-  Classes & member functions
+-  Constructors & destructors
+-  Virtual methods & destructors
+-  Abstract base classes
+-  STL containers (`vector`, `string`)
+-  Memory management (stack & heap)
+
+</td>
+</tr>
+</table>
 
 ---
 
 ##  Lab Overview
 
-### Lab 1 – Introduction to Classes
-- Classes: `Gene`, `Protein`
-- Encapsulation with getters/setters
-- Member functions and `this` pointer
-- Basic object creation and usage
+| Lab | Focus Area | Key Concepts | File |
+|:---:|------------|--------------|------|
+| **1** | **Foundation** | Class design, encapsulation, getters/setters, `this` pointer | [`lab1.cpp`](lab1.cpp) |
+| **2** | **Modern C++** | STL integration, constructors/destructors, initialization lists, object lifecycle | [`lab2.cpp`](lab2.cpp) |
+| **3** | **Composition** | Has-a relationships, nested objects, object destruction order | [`lab3.cpp`](lab3.cpp) |
+| **4** | **Inheritance** | Is-a relationships, base/derived classes, `protected` members, static counters | [`lab4.cpp`](lab4.cpp) |
+| **5** | **Polymorphism** | Abstract classes, pure virtual functions, runtime polymorphism, virtual destructors | [`lab5.cpp`](lab5.cpp) |
 
 ---
 
-### Lab 2 – Constructors, Destructors & STL
-- Use of `std::string` and `std::vector`
-- Constructors and destructors
-- Member initializer lists
-- Object lifetime and scope
-- Optional object counters
+##  Detailed Lab Descriptions
+
+### Lab 1: Foundation - Classes & Encapsulation
+**Concepts**: Basic OOP, encapsulation, member functions
+
+- Implemented `Gene` and `Protein` classes with private data members
+- Created getters/setters for controlled data access
+- Demonstrated the `this` pointer and memory addressing
+- Built foundation for biological data modeling
+
+**Classes**: `Gene`, `Protein`
 
 ---
 
-### Lab 3 – Composition
-- New class: `Sequence`
-- Composition with `Isoform` → contains `Sequence`
-- `Gene` contains multiple `Isoform` objects
-- Object creation and destruction order
+### Lab 2: Modern C++ - STL & Object Lifecycle
+**Concepts**: Constructors, destructors, STL containers
+
+- Migrated from C-style strings to `std::string`
+- Implemented constructor initialization lists
+- Added destructors with logging to track object lifecycle
+- Explored stack vs heap allocation
+- Introduced `const` member variables
+
+**Key Addition**: Proper object lifecycle management
 
 ---
 
-### Lab 4 – Inheritance & Static Members
-- Base class: `Sequence`
-- Derived classes:
-  - `DNASequence`
-  - `RNASequence`
-  - `ProteinSequence`
-- `protected` members
-- Static counters
-- Sequence validation rules per type
+### Lab 3: Composition - Building Complex Structures
+**Concepts**: Object composition, has-a relationships
+
+- Created `Sequence` class for biological sequence data
+- Implemented `Isoform` containing a `Sequence` (composition)
+- Extended `Gene` to contain multiple `Isoform` objects
+- Demonstrated constructor/destructor call order in composed objects
+- Used `std::vector` for dynamic collections
+
+**Architecture**: `Gene` → contains → `Isoform` → contains → `Sequence`
 
 ---
 
-### Lab 5 – Polymorphism & Virtual Methods
-- Abstract base class `Sequence`
-- Pure virtual methods:
-  - `describe()`
-  - `isValid()`
-- Virtual destructors
-- Runtime polymorphism via `Sequence*`
-- `vector<Sequence*>` with mixed derived objects
-- Polymorphic behavior inside composed objects (`Isoform → RNASequence`)
+### Lab 4: Inheritance - Type Hierarchies
+**Concepts**: Inheritance, protected members, static members
+
+- Established `Sequence` as a base class
+- Derived specialized sequence types:
+  - `DNASequence` (validates A, C, G, T)
+  - `RNASequence` (validates A, C, G, U)
+  - `ProteinSequence` (validates 20 amino acids)
+- Implemented static counters for tracking active objects
+- Used `protected` access for shared base class data
+
+**Hierarchy**: `Sequence` ← inherited by ← `DNASequence`, `RNASequence`, `ProteinSequence`
 
 ---
 
-##  Example (Lab 5)
+### Lab 5: Polymorphism - Runtime Flexibility
+**Concepts**: Abstract classes, virtual functions, polymorphism
 
+- Converted `Sequence` to an abstract base class
+- Defined pure virtual functions: `describe()`, `isValid()`
+- Implemented virtual destructors for proper cleanup
+- Used base class pointers to achieve runtime polymorphism
+- Stored heterogeneous objects in `vector<Sequence*>`
+- Demonstrated dynamic dispatch with polymorphic method calls
+
+**Polymorphic Architecture**:
 ```cpp
-// Example: Lab 5 - Polymorphic Sequences
-// Base pointer → points to derived objects
-    Sequence* s1 = new DNASequence("ACGTACGT");
-    Sequence* s2 = new RNASequence("AUGGCCAUGG");
-    Sequence* s3 = new ProteinSequence("MTAPQLR");
+Sequence* → DNASequence
+         → RNASequence
+         → ProteinSequence
+```
 
-    vector<Sequence*> seqs = { s1, s2, s3 };
+---
 
-    for (Sequence* s : seqs) {
-        s->describe();
-        cout << "Length: " << s->length() << endl;
-        cout << "Valid? " << (s->isValid() ? "Yes" : "No") << endl;
-        cout << endl;
-    }
+##  Usage
 
-    // Clean up memory
-    // Deletion (virtual destructor → correct order)
-    for (Sequence* s : seqs)
-        delete s;
+### Compilation
+```bash
+# Compile any lab (example: Lab 5)
+g++ lab5.cpp -o lab5
+
+# Run
+./lab5
+```
+
+### Example Output (Lab 5)
+```
+--- Polymorphic standalone sequences ---
+Sequence created
+DNASequence created
+DNA sequence: ACGTACGT
+Length: 8
+Valid? Yes
+
+Sequence created
+RNASequence created
+RNA sequence: AUGGCCAUGG
+Length: 10
+Valid? Yes
+
+Sequence created
+ProteinSequence created
+Protein sequence: MTAPQLR
+Length: 7
+Valid? Yes
+
+[Destruction sequence with virtual destructors...]
+```
+
+---
+
+##  Domain Model
+
+The project models fundamental bioinformatics entities:
+
+- **Sequence**: Abstract representation of biological sequences
+  - **DNASequence**: Deoxyribonucleic acid (A, C, G, T)
+  - **RNASequence**: Ribonucleic acid (A, C, G, U)
+  - **ProteinSequence**: Amino acid chains (20 standard amino acids)
+- **Isoform**: Alternative splice variants of genes
+- **Gene**: Genomic regions with chromosomal coordinates
+- **Protein**: Protein entities with identifiers and sequences
+
+---
+
+##  License
+
+This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.
+
+---
+
+##  Author
+
+**Andreas Soldatos**  
+Department of Informatics and Telecommunications | UoA
+
+ [LinkedIn](https://linkedin.com/in/andreas-soldatos) |  [GitHub](https://github.com/and-soldatos)
+
+---
+
+<div align="center">
+
+</div>
