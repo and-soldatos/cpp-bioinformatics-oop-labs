@@ -10,14 +10,14 @@ A series of C++ programming labs demonstrating core **Object-Oriented Programmin
 
 ##  Table of Contents
 
-- [Project Overview](#-project-overview)
-- [Key Technical Concepts](#-key-technical-concepts)
-- [Lab Overview](#-lab-overview)
-- [Detailed Lab Descriptions](#-detailed-lab-descriptions)
-- [Usage](#-usage)
-- [Domain Model](#-domain-model)
-- [License](#-license)
-- [Author](#-author)
+- [Project Overview](#project-overview)
+- [Key Technical Concepts](#key-technical-concepts)
+- [Lab Overview](#lab-overview)
+- [Detailed Lab Descriptions](#detailed-lab-descriptions)
+- [Usage](#usage)
+- [Domain Model](#domain-model)
+- [License](#license)
+- [Author](#author)
 
 ---
 
@@ -64,11 +64,11 @@ The repository follows a hands-on learning approach where each lab introduces a 
 
 | Lab | Focus Area | Key Concepts | File |
 |:---:|------------|--------------|------|
-| **1** | **Foundation** | Class design, encapsulation, getters/setters, `this` pointer | [`lab1.cpp`](lab1.cpp) |
-| **2** | **Modern C++** | STL integration, constructors/destructors, initialization lists, object lifecycle | [`lab2.cpp`](lab2.cpp) |
-| **3** | **Composition** | Has-a relationships, nested objects, object destruction order | [`lab3.cpp`](lab3.cpp) |
-| **4** | **Inheritance** | Is-a relationships, base/derived classes, `protected` members, static counters | [`lab4.cpp`](lab4.cpp) |
-| **5** | **Polymorphism** | Abstract classes, pure virtual functions, runtime polymorphism, virtual destructors | [`lab5.cpp`](lab5.cpp) |
+| **1** | **Foundation** | Class design, encapsulation, getters/setters, `this` pointer | [lab1.cpp](lab1.cpp) |
+| **2** | **Modern C++** | STL integration, constructors/destructors, initialization lists, object lifecycle | [lab2.cpp](lab2.cpp) |
+| **3** | **Composition** | Has-a relationships, nested objects, object destruction order | [lab3.cpp](lab3.cpp) |
+| **4** | **Inheritance** | Is-a relationships, base/derived classes, `protected` members, static counters | [lab4.cpp](lab4.cpp) |
+| **5** | **Polymorphism** | Abstract classes, pure virtual functions, runtime polymorphism, virtual destructors | [lab5.cpp](lab5.cpp) |
 
 ---
 
